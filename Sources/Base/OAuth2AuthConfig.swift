@@ -22,6 +22,9 @@
 import UIKit
 #endif
 
+#if os(macOS)
+import Cocoa
+#endif
 
 /**
 Simple struct to hold settings describing how authorization appears to the user.
@@ -45,6 +48,14 @@ public struct OAuth2AuthConfig {
 		
 		/// Starting with iOS 12, `ASWebAuthenticationSession` can be used for embedded authorization instead of our custom class. You can turn this on here.
 		public var useAuthenticationSession = false
+		
+		#if os(macOS)
+		/// Override default window width for embedded authorization
+		public var webViewWindowWidth: CGFloat? = nil
+		
+		/// Override default window height for embedded authorization
+		public var webViewWindowHeight: CGFloat? = nil
+		#endif
 		
 		#if os(iOS)
 		/// By assigning your own style you can configure how the embedded authorization is presented.

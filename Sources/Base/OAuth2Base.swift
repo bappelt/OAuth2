@@ -179,6 +179,12 @@ open class OAuth2Base: OAuth2Securable {
 		if let ttl = settings["title"] as? String {
 			authConfig.ui.title = ttl
 		}
+		if let width = settings["web_view_window_width"] as? CGFloat {
+			authConfig.ui.webViewWindowWidth = width
+		}
+		if let height = settings["web_view_window_height"] as? CGFloat {
+			authConfig.ui.webViewWindowHeight = height
+		}
 		super.init(settings: settings)
 	}
 	
